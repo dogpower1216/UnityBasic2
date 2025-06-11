@@ -6,14 +6,10 @@ using System.Collections;
 /// !!! DO NOT CHANGE Tabs to Spaces !!!
 /// 
 [System.Serializable]
-public class TestData
+public class testData
 {
   [SerializeField]
-  int id_i;
-  public int ID_I { get {return id_i; } set { this.id_i = value;} }
-  
-  [SerializeField]
-  string name_s;
-  public string Name_S { get {return name_s; } set { this.name_s = value;} }
+  string id_i;
+  public string ID_I { get {return id_i; } set { this.id_i = value;} }
   
 }

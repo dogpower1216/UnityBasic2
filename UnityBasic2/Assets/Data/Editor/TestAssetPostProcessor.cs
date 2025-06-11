@@ -7,11 +7,11 @@ using UnityQuickSheet;
 ///
 /// !!! Machine generated code !!!
 ///
-public class TestAssetPostprocessor : AssetPostprocessor 
+public class testAssetPostprocessor : AssetPostprocessor 
 {
     private static readonly string filePath = "Assets/Data/Data.xlsx";
-    private static readonly string assetFilePath = "Assets/Data/Test.asset";
-    private static readonly string sheetName = "Test";
+    private static readonly string assetFilePath = "Assets/Data/test.asset";
+    private static readonly string sheetName = "test";
     
     static void OnPostprocessAllAssets (string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
     {
@@ -20,16 +20,16 @@ public class TestAssetPostprocessor : AssetPostprocessor
             if (!filePath.Equals (asset))
                 continue;
                 
-            Test data = (Test)AssetDatabase.LoadAssetAtPath (assetFilePath, typeof(Test));
+            test data = (test)AssetDatabase.LoadAssetAtPath (assetFilePath, typeof(test));
             if (data == null) {
-                data = ScriptableObject.CreateInstance<Test> ();
+                data = ScriptableObject.CreateInstance<test> ();
                 data.SheetName = filePath;
                 data.WorksheetName = sheetName;
                 AssetDatabase.CreateAsset ((ScriptableObject)data, assetFilePath);
                 //data.hideFlags = HideFlags.NotEditable;
             }
             
-            //data.dataArray = new ExcelQuery(filePath, sheetName).Deserialize<TestData>().ToArray();		
+            //data.dataArray = new ExcelQuery(filePath, sheetName).Deserialize<testData>().ToArray();		
 
             //ScriptableObject obj = AssetDatabase.LoadAssetAtPath (assetFilePath, typeof(ScriptableObject)) as ScriptableObject;
             //EditorUtility.SetDirty (obj);
@@ -37,7 +37,7 @@ public class TestAssetPostprocessor : AssetPostprocessor
             ExcelQuery query = new ExcelQuery(filePath, sheetName);
             if (query != null && query.IsValid())
             {
-                data.dataArray = query.Deserialize<TestData>().ToArray();
+                data.dataArray = query.Deserialize<testData>().ToArray();
                 ScriptableObject obj = AssetDatabase.LoadAssetAtPath (assetFilePath, typeof(ScriptableObject)) as ScriptableObject;
                 EditorUtility.SetDirty (obj);
             }
